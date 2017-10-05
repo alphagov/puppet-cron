@@ -1,0 +1,22 @@
+---
+driver:
+  name: docker
+
+provisioner:
+  name: puppet_apply
+  require_chef_for_busser: false
+  manifests_path: .
+  modules_path: ../
+  # FIXME: Find a better way to do this
+  custom_pre_apply_command: "mv /tmp/kitchen/modules/puppet-cron /tmp/kitchen/modules/cron"
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-14.04
+
+suites:
+  - name: default
+    provisioner:
+      manifest: site.pp

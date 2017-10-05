@@ -1,0 +1,6 @@
+.ruby-version
+Gemfile.lock
+.librarian/
+.kitchen/
+.tmp/
+Puppetfile.lock
